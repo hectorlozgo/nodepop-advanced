@@ -35,6 +35,15 @@ export async function loginUser(req, res, next) {
         res.locals.newAccount = true;
         return res.render("login");
       }
+
+      if (await User.isEmailExist(email)) {
+        res.locals.error = __("Email already exists.");
+        res.locals.name = name;
+        res.locals.email = email;
+        res.locals.newAccount = true;
+        return res.render("login");
+      }
+
       const user = new User({
         name,
         email,
@@ -87,7 +96,6 @@ export async function logout(req, res, next) {
     const logoutMessage = __("See you soon, {{name}}!", { name: user.name });
     req.session.logoutMessage = logoutMessage;
     io.to(oldSessionId).emit("session-logout", logoutMessage);
-
 
     const regenerate = promisify(req.session.regenerate).bind(req.session);
     await regenerate();

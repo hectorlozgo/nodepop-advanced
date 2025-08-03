@@ -61,5 +61,6 @@
 	"to": "to",
 	"Prev": "Prev",
 	"Next": "Next",
-	"Not Found": "Not Found"
+	"Not Found": "Not Found",
+	"Email already exists.": "Email already exists."
 }

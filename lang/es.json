@@ -61,5 +61,6 @@
 	"to": "de",
 	"Prev": "Anterior",
 	"Next": "Siguiente",
-	"Not Found": "No se encuentra"
+	"Not Found": "No se encuentra",
+	"Email already exists.": "El correo electrónico ya existe."
 }

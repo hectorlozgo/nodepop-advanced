@@ -23,6 +23,12 @@ userSchema.methods.comparePassword = function (clearPassword) {
   return bcrypt.compare(clearPassword, this.password);
 };
 
+userSchema.statics.isEmailExist = async function(email) {
+  if (!email) return false;
+  const user = await this.findOne({ email });
+  return !!user;
+};
+
 userSchema.methods.sendEmail = async function (subject, body) {
   const transport = createTransport();
   const result = await sendEmail({
