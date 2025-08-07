@@ -70,13 +70,12 @@ export async function loginUser(req, res, next) {
     req.session.userId = user.id;
     req.session.name = user.name;
 
-    const username = req.session.name;
-    const welcomeMessage = __(`Welcome back to Nodepop ${user.name}!`, {
-      name: username,
+    const welcomeMessage = __("Welcome back to Nodepop, {{name}}!", {
+      name: user.name
     });
     req.session.welcomeMessage = welcomeMessage;
-    io.to(user.id).emit("session-login", welcomeMessage)
-    
+    io.to(user.id).emit("session-login", welcomeMessage);
+
     req.session.save((err) => {
       if (err) return next(err);
     });

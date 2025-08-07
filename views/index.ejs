@@ -161,30 +161,38 @@
           <% } %>
       </div>
 
+      <div class="flex items-center">
+        <p class="text-gray-500 text-xs items-center">
+          <%= __('Page %s of %s', currentPage, totalPages) %>
+        </p>
+      </div>
+
       <% if (currentPage < totalPages) { %>
         <a href="?page=<%= currentPage + 1 %>&limit=<%= limit %>" class="px-4 py-2 bg-gray-200 rounded">▶</a>
         <% } else { %>
           <span class="px-4 py-2 bg-gray-100 rounded text-gray-400"><%= __("Next") %> ▶</span>
           <% } %>
     </div>
-      <p class="text-gray-600">
-        <%= `${__('Page')} ${currentPage} ${__('to')} ${totalPages}` %>
-      </p>
   </div>
 </main>
 
 <%- include('footer') %>
 
-<script>
-  const toggleBtn = document.getElementById('toggleFiltersBtn');
-  const filtersForm = document.getElementById('filtersForm');
+<% if (session.userId) { %>
+<script defer>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('toggleFiltersBtn');
+    const filtersForm = document.getElementById('filtersForm');
+    const filtersLabel = "<%= __('Filters') %>";
 
-  toggleBtn.addEventListener('click', () => {
-    filtersForm.classList.toggle('hidden');
-    if (filtersForm.classList.contains('hidden')) {
-      toggleBtn.textContent = '<%= __("Filters") %> ▼';
-    } else {
-      toggleBtn.textContent = '<%= __("Filters") %> ▲';
+    if (toggleBtn && filtersForm) {
+      toggleBtn.addEventListener('click', () => {
+        filtersForm.classList.toggle('hidden');
+        toggleBtn.textContent = filtersForm.classList.contains('hidden')
+          ? `${filtersLabel} ▼`
+          : `${filtersLabel} ▲`;
+      });
     }
   });
 </script>
+<% } %>
