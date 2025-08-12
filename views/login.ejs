@@ -36,8 +36,9 @@
           type="email"
           name="email"
           id="email"
+          autofocus
           value="<%= email %>"
-          pattern="^[a-zA-Z0-9_-]{1,}@[a-zA-Z]+(-[a-zA-Z]+)*\.(com|net|org|edu|gov|io|co|us|uk|de|fr|es|it|jp|br|ca|au|mx)$"
+          pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
           class="w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
           aria-describedby="emailHelp"
         />
@@ -51,6 +52,7 @@
           type="password"
           name="password"
           id="password"
+          autocomplete="off"
           class="w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
@@ -62,6 +64,7 @@
           </label>
           <input
             type="password"
+            autocomplete="off"
             name="confirmPassword"
             id="confirmPassword"
             class="w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"

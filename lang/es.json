@@ -57,10 +57,9 @@
 	"No Image Available": "No hay imagen disponible",
 	"The product name contains invalid characters": "El nombre del producto contiene caracteres no válidos",
 	"Price must be a number greater than 0": "El precio debe ser mayor que 0",
-	"Page": "Página",
-	"to": "de",
 	"Prev": "Anterior",
 	"Next": "Siguiente",
 	"Not Found": "No se encuentra",
-	"Email already exists.": "El correo electrónico ya existe."
+	"Email already exists.": "El correo electrónico ya existe.",
+	"Page %s of %s": "Página %s de %s"
 }
