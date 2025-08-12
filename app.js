@@ -39,7 +39,11 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static(path.join(import.meta.dirname, "public")));
+app.use(express.static(path.join(import.meta.dirname, "public"), {
+  setHeaders: function (res, path) {
+    res.set("X-Owner", "HLozano87");
+  }
+}));
 
 // Middlewares to sessionUsers
 app.use(sessionManager.sessionUser);
