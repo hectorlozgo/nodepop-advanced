@@ -3,7 +3,6 @@
  */
 import path from "path";
 import express from "express";
-import createError from "http-errors";
 import cookieParser from "cookie-parser";
 import logger from "morgan";
 import cors from "cors";
@@ -18,6 +17,7 @@ import changeLang from "./controllers/langLocaleController.js";
 
 import webRoutes from "./routes/webRoutes.js";
 import apiRoutes from "./routes/apiRoutes.js";
+import createHttpError from "http-errors";
 
 await connectMongoose();
 console.log("Connected to MongoDB");
@@ -68,8 +68,7 @@ app.use("/api-docs", swaggerMiddleware);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  const err = createError(404);
-  err.message = "Not Found";
+  const err = createHttpError(404);
   next(err);
 });
 
@@ -102,7 +101,7 @@ app.use(function (err, req, res, next) {
   res.locals.error = process.env.NODEPOP_ENV === "development" ? err : {};
 
   // render the error page
-  return res.render("error");
+  res.render("error");
 });
 
 export default app;
