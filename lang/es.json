@@ -61,5 +61,8 @@
 	"Next": "Siguiente",
 	"Not Found": "No se encuentra",
 	"Email already exists.": "El correo electrónico ya existe.",
-	"Page %s of %s": "Página %s de %s"
+	"Page %s of %s": "Página %s de %s",
+	"Operation `productos": {
+		"countDocuments()` buffering timed out after 10000ms": "Operation `productos.countDocuments()` buffering timed out after 10000ms"
+	}
 }

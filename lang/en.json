@@ -61,5 +61,8 @@
 	"Next": "Next",
 	"Not Found": "Not Found",
 	"Email already exists.": "Email already exists.",
-	"Page %s of %s": "Page %s of %s"
+	"Page %s of %s": "Page %s of %s",
+	"Operation `productos": {
+		"countDocuments()` buffering timed out after 10000ms": "Operation `productos.countDocuments()` buffering timed out after 10000ms"
+	}
 }
